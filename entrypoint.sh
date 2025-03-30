@@ -1,7 +1,6 @@
 #!/bin/bash
 
-chown -R www-data:www-data /data
-chmod u+rwx /data
+sed -i 's/user www-data;/user root;/g' /etc/nginx/nginx.conf
 
 # Check if environment variables are set
 if [[ -z "$WEBDAV_USER" || -z "$WEBDAV_PASSWORD" ]]; then
