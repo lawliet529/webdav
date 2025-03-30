@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webdav:
+    image: ghcr.io/lawliet529/webdav
+    build: .
+    restart: unless-stopped
+    ports:
+      - 8328:80
+    volumes:
+      - ./data:/data
+      - ./logs:/var/log/nginx
+    environment:
+      - WEBDAV_USER=admin
+      - WEBDAV_PASSWORD=password
